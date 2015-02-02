@@ -1,0 +1,4 @@
+====================
+How it works
+====================
+The exploit works by overwriting the buffer with NOPs, then Aleph One's shell code, then a guessed address to the block of NOPs. This guessed address is meant to overwrite the return address of the bar function and send it to one of the NOPs, which just run down incrementing the program counter until it gets to the shell code. The shell code runs and I get a shell as root.

@@ -1,0 +1,4 @@
+====================
+How it works
+====================
+The exploit works by overwriting one byte of a frame's esp such that when it switches to ebp and pops off the stack as the last frames IP, I can make the IP point to my NOPs which ends in Aleph One's shell code.

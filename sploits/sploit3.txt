@@ -1,0 +1,4 @@
+====================
+How it works
+====================
+The exploit works by creating a normal buffer for buffer overflow exploit with NOPs, then Aleph One's shell code, then an address to the middle of the NOPs. The trick to this one was exploiting integer overflow to get around the check for the in buffer being bigger than the out buffer. I pass in a number that is > 0x80000000 and therefore negative if cast to a signed int. In this case I also had to pick a number n such that n*20 = 241(mod 2^32). This condition arose from the need to pass 241 into memcpy. n * 20 is too big to be held in an unsigned int so it gets modded by 2^32 and we have 241.
